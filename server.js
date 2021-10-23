@@ -1,8 +1,9 @@
 const fastify = require('fastify')({ looger: true });
 
-const router = require('./router.js');
 
-fastify.register(router);
+fastify.register(require('./db
+                         '))
+fastify.register(require('./router.js'););
 
 const start = async () =>{
   try{
