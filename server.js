@@ -1,9 +1,8 @@
 const fastify = require('fastify')({ looger: true });
 
 
-fastify.register(require('./db
-                         '))
-fastify.register(require('./router.js'););
+fastify.register(require('./db-connector'));
+fastify.register(require('./router.js'));
 
 const start = async () =>{
   try{
