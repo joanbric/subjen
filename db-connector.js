@@ -7,4 +7,4 @@ async function dbConnector(fastify, options){
 }
 
 
-module.exports = fastifyPlugin(dbConne)
+module.exports = fastifyPlugin(dbConnector);
