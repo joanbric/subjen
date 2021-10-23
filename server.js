@@ -1,6 +1,8 @@
-const fastify = require('fastify')({ looger: true })
-const router 
-fastify.register()
+const fastify = require('fastify')({ looger: true });
+
+const router = require('./router.js');
+
+fastify.register(router);
 
 const start = async () =>{
   try{
