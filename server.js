@@ -1,8 +1,6 @@
 const fastify = require('fastify')({ looger: true })
-
-fastify.get('/', async (request, response) =>{
-  return 'world'
-});
+const router 
+fastify.register()
 
 const start = async () =>{
   try{
