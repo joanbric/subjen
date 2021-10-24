@@ -3,7 +3,7 @@ const fastify = require('fastify')({ looger: true });
 console.log('All work')
 fastify.register(require('./db-connector.js'));
 console.log('DB Work')
-fastify.register(require('./router.js'));
+//fastify.register(require('./router.js'));
 console.log('router work');
 
 

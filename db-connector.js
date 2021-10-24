@@ -3,11 +3,12 @@ const fastifyPlugin = require("fastify-plugin");
 async function dbConnector(fastify, options) {
   try {
     fastify.register(require("fastify-mongodb"), {
-      url: 'mongodb+srv://bus.tigys.mongodb.net/bus --username master'
+      forceClose: true,
+      url: 'mongodb+srv://bus.tigys.mongodb.net/bus'
     });
   } catch (err) {
     throw new Error(err);
   }
 }
 
-module.exports = fastifyPlugin(dbConnector);
+module.exports = dbConnector//fastifyPlugin(dbConnector);
