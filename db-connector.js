@@ -4,11 +4,11 @@ async function dbConnector(fastify, options) {
   try {
     fastify.register(require("fastify-mongodb"), {
       forceClose: true,
-      url: 'mongodb+srv://bus.tigys.mongodb.net/bus'
+      url: 'mongodb+srv://master:${proccess.env.PASS}@bus.tigys.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     });
   } catch (err) {
     throw new Error(err);
   }
 }
 
-module.exports = dbConnector//fastifyPlugin(dbConnector);
+module.exports = fastifyPlugin(dbConnector);
