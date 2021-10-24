@@ -1,21 +1,16 @@
-const fastify = require('fastify')({ looger: true });
+const fastify = require("fastify")({ loger: true });
 
-const start = async () =>{
-  try{
-console.log('All work')
-await fastify.register(require('./db-connector.js'));
-console.log('DB Work')
-
-fastify.register(require('./router.js'));
-console.log('router work');
-
-
+const start = async () => {
+  try {
+    
+    fastify.register(require("./db-connector.js"));
+    fastify.register(require("./router.js"));
+    
     await fastify.listen(3000);
-  }catch(err){
+  } catch (err) {
     fastify.log.error(err);
-    process.exit(1)
+    process.exit(1);
   }
-}
-
+};
 
 start();
