@@ -2,7 +2,7 @@ const fastifyPlugin = require("fastify-plugin");
 
 async function dbConnector(fastify, options) {
   try {
-    await fastify.register(require("fastify-mongodb"), {
+    fastify.register(require("fastify-mongodb"), {
       forceClose: true,
       url: `mongodb+srv://master:${process.env.MONGO_PASS}@bus.tigys.mongodb.net/bus?retryWrites=true&w=majority`
     });
