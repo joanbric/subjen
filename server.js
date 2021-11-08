@@ -1,16 +1,16 @@
-const fastify = require("fastify")({ loger: true });
+require("dotenv").config();
+const express = require("express");
+const app = express();
 
-const start = async () => {
-  try {
-    
-    fastify.register(require("./db-connector.js"));
-    fastify.register(require("./router.js"));
-    
-    await fastify.listen(3000);
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-};
+const mongoose = require('./source/db-connector')
 
-start();
+const db = mongoose.connection;
+
+// Router 
+app.use(require('./source/router'))
+
+
+
+app.listen(3000, () =>{
+  console.log('App listening')
+})

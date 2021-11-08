@@ -1,15 +1,14 @@
-const fastifyPlugin = require("fastify-plugin");
+const mongoose = require("mongoose");
 
-async function dbConnector(fastify, options) {
-  try {
-    fastify.register(require("fastify-mongodb"), {
-      forceClose: true,
-      url: `mongodb+srv://master:${process.env.MONGO_PASS}@bus.tigys.mongodb.net/bus?retryWrites=true&w=majority`
-    });
-    console.log('Connected!');
-  } catch (err) {
-    throw new Error(err);
-  }
-}
+mongoose.connect(
+    `mongodb+srv://master:${process.env.MONGO_PASS}@bus.tigys.mongodb.net/test?retryWrites=true&w=majority`,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    },
+    () => {
+        console.log("DB Connected");
+    }
+);
 
-module.exports = fastifyPlugin(dbConnector);
+module.exports = mongoose;
