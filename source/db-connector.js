@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-    `mongodb+srv://master:${process.env.MONGO_PASS}@bus.tigys.mongodb.net/test?retryWrites=true&w=majority`,
+    `mongodb+srv://master:${process.env.MONGO_PASS}@bus.tigys.mongodb.net/bus?retryWrites=true&w=majority`,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
