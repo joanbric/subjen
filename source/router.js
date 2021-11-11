@@ -9,8 +9,6 @@ router.use('/routes', require('./routes/routes'))
 
 
 
-router.get('/', (req, res) => {
-  res.json({'message': 'Hola index'})
-})
+
 
 module.exports = router;
