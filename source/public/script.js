@@ -44,6 +44,8 @@ window.initMap = async function () {
 
 document.head.appendChild(scrypt);
 
+
+/*
 function loadServiceWorker() {
     if (!("serviceWorker" in navigator))
         throw new Error(`Your browser doesn't support ServiceWorker`);
@@ -59,3 +61,4 @@ function loadServiceWorker() {
 }
 
 loadServiceWorker()
+*/
