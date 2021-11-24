@@ -19,6 +19,8 @@ function socketManager(io) {
                 this.io.emit("chat1", socket.id + ' text me.')
             }, 2000);
         });
+      
+      socket.on("")
 
     });
 

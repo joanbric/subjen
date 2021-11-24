@@ -1,4 +1,4 @@
-//import socket from './ws/index.js'
+import socket from './ws/wsManager.js'
 
 class Tracker {
   constructor(map) {
@@ -26,6 +26,7 @@ class Tracker {
 
           this.tracks[id].push(currentPosition);
           path.setPath(this.tracks[id]);
+          socket.emit("myPosition", currentPosition);
         },
         null,
         { enableHighAccuracy: true }
