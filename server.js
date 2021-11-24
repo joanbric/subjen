@@ -38,6 +38,7 @@ app.use(cors());
 // Routing ((
 
 app.use(express.static(__dirname + "/source/public/"));
+app.use(express.static(__dirname + "/source/public/js/"));
 app.use(require("./source/router"));
 // )) Routing
 
