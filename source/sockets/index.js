@@ -20,7 +20,9 @@ function socketManager(io) {
             }, 2000);
         });
       
-      socket.on("")
+      socket.on("myPosition", (data)=>{
+        console.log(data)
+      });
 
     });
 
