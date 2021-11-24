@@ -1,12 +1,13 @@
 const socket = io();
+/*
 const btnSend = document.querySelector("#btnSend");
 const txtMsg = document.querySelector("#txtMsg");
 const btnEmit = document.querySelector("#btnEmit");
+*/
 
 
 
-
-
+/*
 
 btnSend.addEventListener("click", () => {
     socket.send(txtMsg.value);
@@ -15,6 +16,7 @@ btnSend.addEventListener("click", () => {
 btnEmit.addEventListener('click', () => {
   socket.emit('chat1', txtMsg.value)
 })
+*/
 socket.on("connect", () => {
     console.log(socket.id);
 });
