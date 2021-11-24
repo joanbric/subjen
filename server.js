@@ -1,6 +1,6 @@
 require("dotenv").config();
-
-const app = require("express")();
+const express = require('express');
+const app = express();
 
 const httpServer = require("http");
 const server = httpServer.createServer(app);
@@ -37,15 +37,11 @@ app.use(cors());
 
 // Routing ((
 
-// app.get("/", (req, res) => {
-//     console.log(__dirname);
-//     res.sendFile(__dirname + "/index.html");
-// });
-app.use(require('express').static(__dirname + "/source/public/"))
+app.use(express.static(__dirname + "/source/public/"));
 app.use(require("./source/router"));
 // )) Routing
 
 //Initialization server
 server.listen(app.get("port"), () => {
-    console.log("App listening on port " + app.get("port"));
+    console.log("App listening on http://localhost:" + app.get("port") + "/");
 });
