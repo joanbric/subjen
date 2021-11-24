@@ -1,4 +1,5 @@
-import socket from './ws/index.js'
+//import socket from './ws/index.js'
+
 class Tracker {
   constructor(map) {
     this.tracks = {};

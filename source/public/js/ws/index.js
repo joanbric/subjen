@@ -30,3 +30,5 @@ socket.on("chat1", (data) => {
     console.log(data);
     console.groupEnd("Chat 1");
 });
+
+export default socket;
