@@ -1,7 +1,7 @@
-import scrypt from "./js/script-apimap.js";
-import buildMap from "./js/build-map.js";
-import MarkerManager from "./js/MarkerManager.js";
-import Tracker from "./js/Tracker.js";
+import scrypt from "/js/script-apimap.js";
+import buildMap from "/js/build-map.js";
+import MarkerManager from "/js/MarkerManager.js";
+import Tracker from "/js/Tracker.js";
 
 let idTrackWatcher;
 const btnTrack = document.querySelector("#btnTrack");

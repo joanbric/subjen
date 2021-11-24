@@ -31,7 +31,7 @@ const corsOpts = {
     allowedHeaders: ["Content-Type", "Access-Control-Allow-Origin"],
 };
 
-app.use(cors());
+app.use(cors(corsOpts));
 
 // )) CORS
 
@@ -39,7 +39,7 @@ app.use(cors());
 
 app.use(express.static(__dirname + "/source/public/"));
 app.use(express.static(__dirname + "/source/public/js/"));
-app.use(require("./source/router"));
+//app.use(require("./source/router"));
 // )) Routing
 
 //Initialization server
