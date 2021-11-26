@@ -31,8 +31,6 @@ socket.on("chat1", (data) => {
     console.groupEnd("Chat 1");
 });
 
-socket.on('myPosition', (data) => {
-  console.log(data)
-})
+
 
 export default socket;

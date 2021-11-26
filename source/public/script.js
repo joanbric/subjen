@@ -3,6 +3,8 @@ import buildMap from "/js/build-map.js";
 import MarkerManager from "/js/MarkerManager.js";
 import Tracker from "/js/Tracker.js";
 
+import socket from './js/ws/wsManager.js';
+
 let idTrackWatcher;
 const btnTrack = document.querySelector("#btnTrack");
 
@@ -10,7 +12,8 @@ window.initMap = async function () {
     try {
         const map = await buildMap();
         const markerManager = new MarkerManager(map);
-        const me = markerManager.me;
+        const me = markerManager.getMe();
+        const otherMarker = markerManager.newMarker(map);
 
         const watcherID_me = navigator.geolocation.watchPosition(
             (position) => {
@@ -37,6 +40,14 @@ window.initMap = async function () {
                 btnTrack.textContent = "Track";
             }
         });
+
+
+
+        socket.on('myPosition', (data) => {
+            console.log(data);
+          })
+
+
     } catch (err) {
         alert(err.message);
     }
