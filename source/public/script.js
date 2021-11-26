@@ -44,7 +44,7 @@ window.initMap = async function () {
 
 
         socket.on('myPosition', (data) => {
-            console.log(data);
+            otherMarker.setPosition(data.currentPosition)
           })
 
 
