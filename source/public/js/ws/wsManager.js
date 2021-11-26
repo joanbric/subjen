@@ -31,4 +31,4 @@ socket.on("chat1", (data) => {
     console.groupEnd("Chat 1");
 });
 
-export default {socket};
+export default socket;
