@@ -26,8 +26,7 @@ class Tracker {
 
           this.tracks[id].push(currentPosition);
           path.setPath(this.tracks[id]);
-          socket.emit("myPosition", currentPosition);
-          socket.send("Prueba desde " + socket.id)
+          socket.emit("myPosition", {id: socket.id, name: id, currentPosition});
         },
         null,
         { enableHighAccuracy: true }

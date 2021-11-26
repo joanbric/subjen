@@ -31,4 +31,8 @@ socket.on("chat1", (data) => {
     console.groupEnd("Chat 1");
 });
 
+socket.on('MyPosition', (data) => {
+  console.log(data)
+})
+
 export default socket;

@@ -22,6 +22,7 @@ function socketManager(io) {
       
       socket.on("myPosition", (data)=>{
         console.log(data)
+        this.io.emit('myPosition', data)
       });
 
     });
