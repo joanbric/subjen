@@ -12,7 +12,7 @@ window.initMap = async function () {
     try {
         const map = await buildMap();
         const markerManager = new MarkerManager(map);
-        const me = markerManager.getMe();
+        const me = markerManager.getMe;
         const otherMarker = markerManager.newMarker(map);
 
         const watcherID_me = navigator.geolocation.watchPosition(
