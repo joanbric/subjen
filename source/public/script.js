@@ -29,7 +29,7 @@ window.initMap = async function () {
             { enableHighAccuracy: true }
         );
 
-        const tracker = new Tracker(map);
+        const tracker = new Tracker(map, me);
 
         btnTrack.addEventListener("click", () => {
             if (btnTrack.textContent == "Track") {

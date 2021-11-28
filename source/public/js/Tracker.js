@@ -1,60 +1,57 @@
-import socket from './ws/wsManager.js'
+import socket from "./ws/wsManager.js";
 
 class Tracker {
-  constructor(map) {
-    this.tracks = {};
-    this.paths = {};
-    this.map = map;
-  }
-
-  trackMe(id) {
-    let watcherID_me;
-    try{
-      
-    if (this.tracks[id]) {
-      alert("That id already exist.");
-    } else {
-      const path = this.newPath(id);
-      this.tracks[id] = [];
-
-      watcherID_me = navigator.geolocation.watchPosition(
-        position => {
-          const currentPosition = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          this.tracks[id].push(currentPosition);
-          path.setPath(this.tracks[id]);
-          socket.emit("myPosition", {id: socket.id, name: id, currentPosition});
-        },
-        null,
-        { enableHighAccuracy: true }
-      );
-
-      path.setMap(this.map);
+    constructor(map, marker) {
+        this.#tracks = {};
+        this.#paths = {};
+        this.#map = map;
+        this.#marker = marker;
     }
-    }catch(err){
-      alert(err.message)
+
+    trackMe(id) {
+        let intervalID_me;
+        try {
+            if (this.tracks[id]) {
+                alert("That id already exist.");
+                return null
+            }
+            const path = this.newPath(id);
+            this.tracks[id] = [];
+
+            intervalID_me = setInterval(() => {
+                const currentPosition = marker.getPosition();
+
+                this.tracks[id].push(currentPosition);
+                path.setPath(this.tracks[id]);
+                socket.emit("myPosition", {
+                    id: socket.id,
+                    name: id,
+                    currentPosition,
+                });
+            }, 500);
+
+            path.setMap(this.map);
+        } catch (err) {
+            alert(err.message);
+        }
+        return intervalID_me;
     }
-    return watcherID_me;
-  }
 
-  untrackMe(watcherID) {
-    navigator.geolocation.clearWatch(watcherID);
-  }
+    untrackMe(intervalID) {
+        clearInterval(intervalID);
+    }
 
-  newPath(id) {
-    this.paths[id] = new google.maps.Polyline({
-      //path: track,
-      geodesic: true,
-      strokeColor: "#FF0000",
-      strokeOpacity: 0.8,
-      strokeWeight: 5
-    });
+    newPath(id) {
+        this.paths[id] = new google.maps.Polyline({
+            //path: track,
+            geodesic: true,
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.8,
+            strokeWeight: 5,
+        });
 
-    return this.paths[id];
-  }
+        return this.paths[id];
+    }
 }
 
 export default Tracker;
