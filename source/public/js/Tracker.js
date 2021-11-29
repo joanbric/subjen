@@ -1,6 +1,11 @@
 import socket from "./ws/wsManager.js";
 
 class Tracker {
+    #tracks;
+    #paths;
+    #map;
+    #marker;
+    
     constructor(map, marker) {
         this.#tracks = {};
         this.#paths = {};
