@@ -1,7 +1,7 @@
 import initPosition from "./initPosition.js";
 let map;
 
-function getMap() {
+async function getMap() {
     if (map) return map;
     try {
         const { lat, lng } = await initPosition();
