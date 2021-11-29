@@ -26,7 +26,7 @@ class MarkerManager {
           infoWindow.setContent(this.getTitle());
           infoWindow.open(marker.getMap(), marker);
         })
-        return;
+        return marker;
     }
 }
 
