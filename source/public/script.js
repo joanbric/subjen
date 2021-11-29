@@ -1,54 +1,52 @@
-import scrypt from "/js/script-apimap.js";
-import map from "./js/build-map.js";
-import MarkerManager from "/js/MarkerManager.js";
-import Tracker from "/js/Tracker.js";
+import scrypt from "./js/script-apimap.js";
+import getMap from "./js/build-map.js";
+import MarkerManager from "./js/MarkerManager.js";
+import Tracker from "./js/Tracker.js";
 
-import socket from './js/ws/wsManager.js';
+import socket from "./js/ws/wsManager.js";
 
 let idTrackWatcher;
 const btnTrack = document.querySelector("#btnTrack");
 
 window.initMap = async function () {
+    const map = getMap();
     // try {
-        
-        // const markerManager = new MarkerManager(map);
-        // const me = markerManager.getMe;
-        // const otherMarker = markerManager.newMarker(map);
 
-        // me.setLabel("Me")
-        // const watcherID_me = navigator.geolocation.watchPosition(
-        //     (position) => {
-        //         const currentPosition = {
-        //             lat: position.coords.latitude,
-        //             lng: position.coords.longitude,
-        //         };
+    // const markerManager = new MarkerManager(map);
+    // const me = markerManager.getMe;
+    // const otherMarker = markerManager.newMarker(map);
 
-        //         me.setPosition(currentPosition);
-        //         //map.setCenter(currentPosition);
-        //     },
-        //     null,
-        //     { enableHighAccuracy: true }
-        // );
+    // me.setLabel("Me")
+    // const watcherID_me = navigator.geolocation.watchPosition(
+    //     (position) => {
+    //         const currentPosition = {
+    //             lat: position.coords.latitude,
+    //             lng: position.coords.longitude,
+    //         };
 
-        // const tracker = new Tracker(map, me);
+    //         me.setPosition(currentPosition);
+    //         //map.setCenter(currentPosition);
+    //     },
+    //     null,
+    //     { enableHighAccuracy: true }
+    // );
 
-        // btnTrack.addEventListener("click", () => {
-        //     if (btnTrack.textContent == "Track") {
-        //         idTrackWatcher = tracker.trackMe(prompt("Nombre"));
-        //         btnTrack.textContent = "Untrack";
-        //     } else {
-        //         tracker.untrackMe(idTrackWatcher);
-        //         btnTrack.textContent = "Track";
-        //     }
-        // });
+    // const tracker = new Tracker(map, me);
 
+    // btnTrack.addEventListener("click", () => {
+    //     if (btnTrack.textContent == "Track") {
+    //         idTrackWatcher = tracker.trackMe(prompt("Nombre"));
+    //         btnTrack.textContent = "Untrack";
+    //     } else {
+    //         tracker.untrackMe(idTrackWatcher);
+    //         btnTrack.textContent = "Track";
+    //     }
+    // });
 
-
-        // socket.on('myPosition', (data) => {
-        //     otherMarker.setPosition(data.currentPosition);
-        //     otherMarker.setTitle(data.name)
-        //   })
-
+    // socket.on('myPosition', (data) => {
+    //     otherMarker.setPosition(data.currentPosition);
+    //     otherMarker.setTitle(data.name)
+    //   })
 
     // } catch (err) {
     //     console.error(err.message);
@@ -56,7 +54,6 @@ window.initMap = async function () {
 };
 
 document.head.appendChild(scrypt);
-
 
 /*
 function loadServiceWorker() {
