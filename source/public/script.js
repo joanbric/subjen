@@ -15,6 +15,7 @@ window.initMap = async function () {
         const me = markerManager.getMe;
         const otherMarker = markerManager.newMarker(map);
 
+        me.setLabel("Me")
         const watcherID_me = navigator.geolocation.watchPosition(
             (position) => {
                 const currentPosition = {
@@ -44,7 +45,8 @@ window.initMap = async function () {
 
 
         socket.on('myPosition', (data) => {
-            otherMarker.setPosition(data.currentPosition)
+            otherMarker.setPosition(data.currentPosition);
+            otherMarker.setLabel(data.name)
           })
 
 
