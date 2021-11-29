@@ -9,7 +9,7 @@ let idTrackWatcher;
 const btnTrack = document.querySelector("#btnTrack");
 
 window.initMap = async function () {
-    try {
+    // try {
         const map = await buildMap();
         const markerManager = new MarkerManager(map);
         const me = markerManager.getMe;
@@ -50,9 +50,9 @@ window.initMap = async function () {
           })
 
 
-    } catch (err) {
-        console.error(err.message);
-    }
+    // } catch (err) {
+    //     console.error(err.message);
+    // }
 };
 
 document.head.appendChild(scrypt);
