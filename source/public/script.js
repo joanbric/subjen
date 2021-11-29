@@ -46,7 +46,7 @@ window.initMap = async function () {
 
         socket.on('myPosition', (data) => {
             otherMarker.setPosition(data.currentPosition);
-            otherMarker.setLabel(data.name)
+            otherMarker.setTitle(data.name)
           })
 
 
