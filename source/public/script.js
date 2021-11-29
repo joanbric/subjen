@@ -1,5 +1,5 @@
 import scrypt from "/js/script-apimap.js";
-import buildMap from "/js/build-map.js";
+import map from "./js/build-map.js";
 import MarkerManager from "/js/MarkerManager.js";
 import Tracker from "/js/Tracker.js";
 
@@ -10,7 +10,7 @@ const btnTrack = document.querySelector("#btnTrack");
 
 window.initMap = async function () {
     // try {
-        const map = await buildMap();
+        
         // const markerManager = new MarkerManager(map);
         // const me = markerManager.getMe;
         // const otherMarker = markerManager.newMarker(map);

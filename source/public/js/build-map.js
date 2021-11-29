@@ -1,18 +1,16 @@
 import initPosition from "./initPosition.js";
+let map;
 
-async function builtMap() {
-  try{
-    
-  const { lat, lng } = await initPosition();
-  const google_map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: lat, lng: lng },
-    zoom: 18,
-    disableDefaultUI: true
-  });    
-    return google_map;
-  }catch(err){
-    alert(err.message)
-  }
+try {
+    const { lat, lng } = await initPosition();
+     map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: lat, lng: lng },
+        zoom: 18,
+        disableDefaultUI: true,
+    });
+} catch (err) {
+    map = null;
+    alert(err.message);
 }
 
-export default builtMap;
+export default map;
