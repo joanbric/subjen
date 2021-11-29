@@ -23,8 +23,8 @@ class MarkerManager {
 
         marker.addListener("click", () => {
           infoWindow.close();
-          infoWindow.setContent(this.getTitle());
           console.log(this)
+          infoWindow.setContent(marker.getTitle());
           infoWindow.open(marker.getMap(), marker);
         })
         return marker;
