@@ -1,3 +1,5 @@
+import markerManagerSingle from '../MarkerManager.js'
+let markerManager = markerManagerSingle();
 const socket = io();
 /*
 const btnSend = document.querySelector("#btnSend");
@@ -30,7 +32,10 @@ socket.on("chat1", (data) => {
     console.log(data);
     console.groupEnd("Chat 1");
 });
+socket.on("myPosition", (data) => {
 
+    markerManager.positionMarker(data.id)
+})
 
 
 export default socket;

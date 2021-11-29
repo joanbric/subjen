@@ -1,6 +1,6 @@
 import scrypt from "./js/script-apimap.js";
 import getMap from "./js/build-map.js";
-import MarkerManager from "./js/MarkerManager.js";
+import markerManagerSingle from "./js/MarkerManager.js";
 import Tracker from "./js/Tracker.js";
 
 import socket from "./js/ws/wsManager.js";
@@ -12,7 +12,7 @@ window.initMap = async function () {
     const map = getMap();
     // try {
 
-    // const markerManager = new MarkerManager(map);
+    const markerManager = markerManagerSingle(map);
     // const me = markerManager.getMe;
     // const otherMarker = markerManager.newMarker(map);
 
