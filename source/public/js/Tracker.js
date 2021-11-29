@@ -16,18 +16,18 @@ class Tracker {
     trackMe(id) {
         let intervalID_me;
         try {
-            if (this.tracks[id]) {
+            if (this.#tracks[id]) {
                 alert("That id already exist.");
                 return null
             }
             const path = this.newPath(id);
-            this.tracks[id] = [];
+            this.#tracks[id] = [];
 
             intervalID_me = setInterval(() => {
-                const currentPosition = marker.getPosition();
+                const currentPosition = this.#marker.getPosition();
 
-                this.tracks[id].push(currentPosition);
-                path.setPath(this.tracks[id]);
+                this.#tracks[id].push(currentPosition);
+                path.setPath(this.#tracks[id]);
                 socket.emit("myPosition", {
                     id: socket.id,
                     name: id,
@@ -35,7 +35,7 @@ class Tracker {
                 });
             }, 500);
 
-            path.setMap(this.map);
+            path.setMap(this.#map);
         } catch (err) {
             alert(err.message);
         }
@@ -47,7 +47,7 @@ class Tracker {
     }
 
     newPath(id) {
-        this.paths[id] = new google.maps.Polyline({
+        this.#paths[id] = new google.maps.Polyline({
             //path: track,
             geodesic: true,
             strokeColor: "#FF0000",
@@ -55,7 +55,7 @@ class Tracker {
             strokeWeight: 5,
         });
 
-        return this.paths[id];
+        return this.#paths[id];
     }
 }
 
