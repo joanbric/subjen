@@ -11,43 +11,43 @@ const btnTrack = document.querySelector("#btnTrack");
 window.initMap = async function () {
     // try {
         const map = await buildMap();
-        const markerManager = new MarkerManager(map);
-        const me = markerManager.getMe;
-        const otherMarker = markerManager.newMarker(map);
+        // const markerManager = new MarkerManager(map);
+        // const me = markerManager.getMe;
+        // const otherMarker = markerManager.newMarker(map);
 
-        me.setLabel("Me")
-        const watcherID_me = navigator.geolocation.watchPosition(
-            (position) => {
-                const currentPosition = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                };
+        // me.setLabel("Me")
+        // const watcherID_me = navigator.geolocation.watchPosition(
+        //     (position) => {
+        //         const currentPosition = {
+        //             lat: position.coords.latitude,
+        //             lng: position.coords.longitude,
+        //         };
 
-                me.setPosition(currentPosition);
-                //map.setCenter(currentPosition);
-            },
-            null,
-            { enableHighAccuracy: true }
-        );
+        //         me.setPosition(currentPosition);
+        //         //map.setCenter(currentPosition);
+        //     },
+        //     null,
+        //     { enableHighAccuracy: true }
+        // );
 
-        const tracker = new Tracker(map, me);
+        // const tracker = new Tracker(map, me);
 
-        btnTrack.addEventListener("click", () => {
-            if (btnTrack.textContent == "Track") {
-                idTrackWatcher = tracker.trackMe(prompt("Nombre"));
-                btnTrack.textContent = "Untrack";
-            } else {
-                tracker.untrackMe(idTrackWatcher);
-                btnTrack.textContent = "Track";
-            }
-        });
+        // btnTrack.addEventListener("click", () => {
+        //     if (btnTrack.textContent == "Track") {
+        //         idTrackWatcher = tracker.trackMe(prompt("Nombre"));
+        //         btnTrack.textContent = "Untrack";
+        //     } else {
+        //         tracker.untrackMe(idTrackWatcher);
+        //         btnTrack.textContent = "Track";
+        //     }
+        // });
 
 
 
-        socket.on('myPosition', (data) => {
-            otherMarker.setPosition(data.currentPosition);
-            otherMarker.setTitle(data.name)
-          })
+        // socket.on('myPosition', (data) => {
+        //     otherMarker.setPosition(data.currentPosition);
+        //     otherMarker.setTitle(data.name)
+        //   })
 
 
     // } catch (err) {
