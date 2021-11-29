@@ -21,9 +21,9 @@ class MarkerManager {
         const infoWindow = new google.maps.InfoWindow();
         const marker = new google.maps.Marker(values);
 
-        marker.addListener("click", () => {
+        marker.addListener("click", (e) => {
           infoWindow.close();
-          console.log(this)
+          console.log(e);
           infoWindow.setContent(marker.getTitle());
           infoWindow.open(marker.getMap(), marker);
         })
