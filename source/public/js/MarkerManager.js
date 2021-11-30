@@ -24,7 +24,7 @@ function getMe() {
     return _me;
 }
 
-function newMarker(options) {
+function newMarker(options = {}) {
     let markerOptions = {
         map: _map,
         position: options.position,
