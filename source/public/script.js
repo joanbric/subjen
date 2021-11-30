@@ -9,7 +9,7 @@ let idTrackWatcher;
 const btnTrack = document.querySelector("#btnTrack");
 
 window.initMap = async function () {
-    const map = getMap();
+    const map = await getMap();
     // try {
 
     
