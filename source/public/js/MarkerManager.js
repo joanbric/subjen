@@ -62,7 +62,7 @@ function positionMarker(options) {
     _markers[id].setPosition(options.position);
 }
 
-export default {
+export {
     setMe,
     getMe,
     positionMarker,
