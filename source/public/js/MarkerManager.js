@@ -25,7 +25,7 @@ function getMe() {
 }
 
 function newMarker(options = {}) {
-    if(!_map) console.error("No have any map to create a marker")
+    if(!_map) throw new Error("No have any map to create a marker")
     let markerOptions = {
         map: _map,
         position: options.position,
