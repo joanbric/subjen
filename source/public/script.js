@@ -6,7 +6,6 @@ import Tracker from "./js/Tracker.js";
 import socket from "./js/ws/wsManager.js";
 
 let idTrackWatcher;
-const btnTrack = document.querySelector("#btnTrack");
 
 window.initMap = async function () {
     const map = await getMap();
@@ -32,16 +31,6 @@ window.initMap = async function () {
     // );
 
     // const tracker = new Tracker(map, me);
-
-    // btnTrack.addEventListener("click", () => {
-    //     if (btnTrack.textContent == "Track") {
-    //         idTrackWatcher = tracker.trackMe(prompt("Nombre"));
-    //         btnTrack.textContent = "Untrack";
-    //     } else {
-    //         tracker.untrackMe(idTrackWatcher);
-    //         btnTrack.textContent = "Track";
-    //     }
-    // });
 
     // socket.on('myPosition', (data) => {
     //     otherMarker.setPosition(data.currentPosition);

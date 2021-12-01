@@ -1,7 +1,9 @@
+import socket from "./ws/wsManager";
+
 let _map;
 let _me;
 let _markers = [];
-let _whatcherID_me;
+let _watcherID_me;
 
 function setMe(map, options) {
     _map = map;
@@ -20,9 +22,11 @@ function setMe(map, options) {
         { enableHighAccuracy: true }
     );
 }
+
 function getMe() {
     return _me;
 }
+
 
 function newMarker(options = {}) {
     if(!_map) return null
