@@ -1,5 +1,3 @@
-import socket from "./ws/wsManager";
-
 let _map;
 let _me;
 let _markers = [];
