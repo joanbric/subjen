@@ -51,9 +51,9 @@ function newMarker(options = {}) {
     });
 
     if (!_me) return marker;
-    if (!id) throw new Error("To create other markers you need an id");
+    if (!options.id) throw new Error("To create other markers you need an id");
 
-    _markers[id] = marker;
+    _markers[options.id] = marker;
 }
 
 function positionMarker(options) {
@@ -62,7 +62,7 @@ function positionMarker(options) {
         throw new Error(
             "To reposition a marker is necesary the new position. Position not valid"
         );
-    _markers[id].setPosition(options.currentPosition);
+    _markers[options.id].setPosition(options.currentPosition);
 }
 
 export {

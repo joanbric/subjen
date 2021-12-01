@@ -25,7 +25,7 @@ btnTrack.addEventListener("click", () => {
         intervalID = setInterval(() => {
             let currentPosition = getMe().getPosition();
             socket.emit("myPosition", {id, name, currentPosition})
-        }) 
+        }, 500) 
 
         btnTrack.textContent = "Untrack";
     } else {
