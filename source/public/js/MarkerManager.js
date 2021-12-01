@@ -58,11 +58,11 @@ function newMarker(options = {}) {
 
 function positionMarker(options) {
     if (!options.id) newMarker(options);
-    if (!options.position)
+    if (!options.currentPosition)
         throw new Error(
             "To reposition a marker is necesary the new position. Position not valid"
         );
-    _markers[id].setPosition(options.position);
+    _markers[id].setPosition(options.currentPosition);
 }
 
 export {
