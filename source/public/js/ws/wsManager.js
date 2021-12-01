@@ -12,7 +12,7 @@ socket.on("message", (data) => {
 });
 
 socket.on("myPosition", (data) => {
-    positionMarker(data);
+   if(data.id != socket.id) positionMarker(data);
 });
 
 let intervalID;
